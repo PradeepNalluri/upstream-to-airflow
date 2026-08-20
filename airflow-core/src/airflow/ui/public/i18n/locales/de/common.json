@@ -72,6 +72,7 @@
     "expectedDuration": "Erwartete mittlere Laufzeit",
     "lastSchedulingDecision": "Letzte Planungsentscheidung",
     "mappedPartitionKey": "Zugeordneter Partitionsschlüssel",
+    "partitionDate": "Partitionsdatum",
     "partitionKey": "Partitionsschlüssel",
     "queuedAt": "Wartend seit",
     "runAfter": "Gelaufen ab",
@@ -84,8 +85,6 @@
   "dagRun_other": "Dag Läufe",
   "dagRunId": "Dag Lauf ID",
   "dagWarnings": "Dag Warnungen und Fehler",
-  "defaultToGraphView": "Graph-Ansicht als Standard",
-  "defaultToGridView": "Gitter-Ansicht als Standard",
   "delete": "Löschen",
   "diff": "Differenzansicht",
   "diffCompareWith": "Vergleichen mit",
@@ -145,7 +144,11 @@
     "selectDateRange": "Zeitraum auswählen",
     "startTime": "Startzeitpunkt"
   },
+  "fullscreen": {
+    "tooltip": "Drücken Sie {{hotkey}} für den Vollbildmodus"
+  },
   "generateToken": "Zugriffstoken erzeugen",
+  "includedIn": "Enthalten in",
   "key": "Schlüssel",
   "logicalDate": "Logisches Datum",
   "logout": "Abmelden",
@@ -176,9 +179,12 @@
   "note": {
     "add": "Eine Notiz hinzufügen",
     "dagRun": "Notizen zum Dag Lauf",
+    "edit": "Notiz bearbeiten",
     "label": "Notiz",
     "placeholder": "Eine Notiz hinzufügen...",
-    "taskInstance": "Notizen zu Task Instanzen"
+    "preview": "Vorschau",
+    "taskInstance": "Notizen zu Task Instanzen",
+    "write": "Schreiben"
   },
   "overallStatus": "Gesamtstatus",
   "partitionedDagRun_one": "Partitionierter Dag Lauf",
@@ -217,8 +223,49 @@
     "roles": "Rollen",
     "users": "Benutzer"
   },
-  "selectLanguage": "Sprache wählen",
   "selected": "Ausgewählt",
+  "selectLanguage": "Sprache wählen",
+  "shortcuts": {
+    "categories": {
+      "code": "Code",
+      "dagView": "Dag-Ansicht",
+      "filters": "Filter",
+      "global": "Global",
+      "logs": "Protokolle",
+      "navigation": "Navigation",
+      "runActions": "Lauf- und Task-Aktionen",
+      "search": "Suche"
+    },
+    "descriptions": {
+      "clearRun": "$t(dagRun_one) löschen",
+      "clearTaskInstance": "$t(taskInstance_one) löschen",
+      "downloadLogs": "Protokolle herunterladen",
+      "focusFilterSearch": "Filtersuche fokussieren",
+      "focusLogSearch": "Protokolle durchsuchen",
+      "focusSearch": "Suche fokussieren",
+      "markRunFailed": "$t(dagRun_one) als fehlgeschlagen markieren",
+      "markRunSuccess": "$t(dagRun_one) als erfolgreich markieren",
+      "markTaskFailed": "$t(task_one) als fehlgeschlagen markieren",
+      "markTaskGroupFailed": "$t(taskGroup_one) als fehlgeschlagen markieren",
+      "markTaskGroupSuccess": "$t(taskGroup_one) als erfolgreich markieren",
+      "markTaskSuccess": "$t(task_one) als erfolgreich markieren",
+      "navigateTasks": "Zu $t(task_other) navigieren",
+      "openGraphFilters": "Graphfilter öffnen",
+      "scrollBottom": "Nach unten scrollen",
+      "scrollTop": "Nach oben scrollen",
+      "searchDags": "$t(dag_other) suchen",
+      "showHelp": "$t(shortcuts.title) anzeigen",
+      "toggleExpand": "Alle Gruppen ein- oder ausklappen",
+      "toggleFullscreen": "Vollbild umschalten",
+      "toggleGraphGrid": "Zwischen Graph- und Gitteransicht wechseln",
+      "toggleSource": "Quelle umschalten",
+      "toggleTaskGroup": "$t(taskGroup_one) ein- oder ausklappen",
+      "toggleTimestamp": "Zeitstempel umschalten",
+      "toggleWrap": "$t(wrap.wrap) umschalten"
+    },
+    "empty": "Auf dieser Seite sind keine Tastenkürzel verfügbar.",
+    "title": "Tastenkürzel"
+  },
   "showDetailsPanel": "Detailansicht einblenden",
   "signedInAs": "Angemeldet als",
   "source": {
@@ -285,10 +332,12 @@
   "taskGroup_other": "Task Gruppen",
   "taskId": "Task ID",
   "taskInstance": {
+    "additionalAttributes": "Zusätzliche Attribute der Task Instanz",
     "dagVersion": "Dag Version",
     "executor": "Ausführungsumgebung",
     "executorConfig": "Konfiguration der Ausführungsumgebung",
     "hostname": "Hostname",
+    "id": "ID",
     "maxTries": "Maximale Versuche",
     "pid": "PID",
     "pool": "Pool",
@@ -298,11 +347,13 @@
     "queuedWhen": "Wartend seit",
     "renderedMapIndex": "Planungs-Index Anzeige",
     "scheduledWhen": "Geplant ab",
+    "trigger": "Auslöser",
     "triggerer": {
       "assigned": "Zugewiesene Abrufumgebung",
       "class": "Abruf-Klasse",
       "createdAt": "Zeitpunkt der Erstellung",
       "id": "Abrufungs ID",
+      "job": "Abrufumgebungs-Job",
       "latestHeartbeat": "Letztes Lebenszeichen",
       "title": "Abrufumgebungs-Information"
     },

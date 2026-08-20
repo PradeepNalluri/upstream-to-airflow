@@ -10,11 +10,13 @@
   "filters": {
     "allRunTypes": "Alle Arten von Läufen",
     "allStates": "Alle Stati",
+    "anyRunState": "Beliebiger Lauf",
     "favorite": {
       "all": "Alle",
       "favorite": "Favorisierte",
       "unfavorite": "Nicht favorisierte"
     },
+    "lastRunState": "Letzter Lauf",
     "paused": {
       "active": "Aktiv",
       "all": "Alle",
@@ -87,10 +89,6 @@
     "displayName": {
       "asc": "Sortiert nach Anzeigename (A-Z)",
       "desc": "Sortiert nach Anzeigename (Z-A)"
-    },
-    "lastRunStartDate": {
-      "asc": "Sortiert nach letztem Startdatum (Erster-Letzter)",
-      "desc": "Sortiert nach letztem Startdatum (Letzter-Erster)"
     },
     "lastRunState": {
       "asc": "Sortiert nach dem Status des letzten Laufes (A-Z)",

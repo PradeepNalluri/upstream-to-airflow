@@ -42,6 +42,7 @@
   },
   "deadlineAlerts": {
     "completionRule": "Muss innerhalb von {{interval}} nach {{reference}} abgeschlossen sein",
+    "completionRuleDynamic": "Muss innerhalb eines variablen, ab {{reference}} gemessenen Intervalls abgeschlossen werden",
     "count_one": "{{count}} Frist",
     "count_other": "{{count}} Fristen",
     "referenceType": {
@@ -91,10 +92,6 @@
     "critical": "CRITICAL",
     "debug": "DEBUG",
     "error": "ERROR",
-    "fullscreen": {
-      "button": "Vollbild",
-      "tooltip": "Taste {{hotkey}} für Vollbildmodus"
-    },
     "info": "INFO",
     "noTryNumber": "Keine Versuchsnummer",
     "search": {
@@ -146,15 +143,6 @@
     "dagRuns": {
       "label": "Anzahl von Dag Läufen"
     },
-    "dependencies": {
-      "label": "Abhängigkeiten",
-      "options": {
-        "allDagDependencies": "Alle Dag Abhängigkeiten",
-        "externalConditions": "Externe Bedingungen",
-        "onlyTasks": "Nur Tasks"
-      },
-      "placeholder": "Abhängigkeiten"
-    },
     "graphDirection": {
       "label": "Richtung des Graph"
     },
@@ -185,11 +173,11 @@
       "direction": "Richtung",
       "label": "Filter",
       "mode": "Modus",
-      "modeTooltip": "Der Modus \"Statisch\" behält die aktuelle Ansicht beim Navigieren zwischen verschiedenen Tasks bei, während der Modus \"Traversieren\" den aktiven Filter automatisch auf den angeklickten Task aktualisiert, um die Dag-Navigation zu erleichtern.",
       "modes": {
         "static": "Statisch",
         "traverse": "Traversieren"
       },
+      "modeTooltip": "Der Modus \"Statisch\" behält die aktuelle Ansicht beim Navigieren zwischen verschiedenen Tasks bei, während der Modus \"Traversieren\" den aktiven Filter automatisch auf den angeklickten Task aktualisiert, um die Dag-Navigation zu erleichtern.",
       "options": {
         "both": "Sowohl Vorgänger als auch Nachfolger",
         "downstream": "Nachfolger",
