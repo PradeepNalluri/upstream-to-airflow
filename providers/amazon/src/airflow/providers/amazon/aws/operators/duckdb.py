@@ -19,7 +19,7 @@ from __future__ import annotations
 from typing import ClassVar
 
 from airflow.providers.amazon.aws.hooks.duckdb import AwsDuckDBHook
-from airflow.providers.common.compat.sdk import AirflowOptionalProviderFeatureException
+from airflow.exceptions import AirflowOptionalProviderFeatureException
 
 try:
     from airflow.providers.duckdb.operators.duckdb import DuckDBExecuteQueryOperator

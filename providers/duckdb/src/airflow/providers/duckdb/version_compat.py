@@ -38,10 +38,7 @@ def get_base_airflow_version_tuple() -> tuple[int, int, int]:
 
 AIRFLOW_V_3_0_PLUS = get_base_airflow_version_tuple() >= (3, 0, 0)
 
-if AIRFLOW_V_3_0_PLUS:
-    from airflow.sdk.exceptions import AirflowNotFoundException
-else:
-    from airflow.exceptions import AirflowNotFoundException  # type: ignore[no-redef]
+from airflow.exceptions import AirflowNotFoundException
 
 __all__ = [
     "AIRFLOW_V_3_0_PLUS",

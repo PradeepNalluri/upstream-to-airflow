@@ -21,7 +21,7 @@ from typing import TYPE_CHECKING, Any, Literal
 from urllib.parse import urlsplit
 
 from airflow.providers.amazon.aws.hooks.base_aws import AwsBaseHook
-from airflow.providers.common.compat.sdk import AirflowOptionalProviderFeatureException
+from airflow.exceptions import AirflowOptionalProviderFeatureException
 
 try:
     from airflow.providers.duckdb.hooks.duckdb import DuckDBHook
