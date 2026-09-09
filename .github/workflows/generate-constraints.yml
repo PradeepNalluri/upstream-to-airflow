@@ -109,14 +109,14 @@ jobs:
           ref: ${{ inputs.checkout-ref }}
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ matrix.python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: ${{ matrix.python-version }}
           use-uv: ${{ inputs.use-uv }}
           make-mnt-writeable-and-cleanup: true
       - name: "Install prek"
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: ${{ inputs.platform }}

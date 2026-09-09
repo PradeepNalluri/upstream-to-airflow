@@ -81,7 +81,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: Free space
         run: breeze ci free-space --answer yes
       - name: "Cleanup dist and context file"
@@ -175,7 +175,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: Free space
         run: breeze ci free-space --answer yes
       - name: "Cleanup dist and context file"

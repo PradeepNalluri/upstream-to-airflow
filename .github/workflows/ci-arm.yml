@@ -178,7 +178,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         id: breeze
       - name: "Save github context to file"
         # The github context can be very large for PRs that touch many files (e.g. Dependabot
@@ -235,7 +235,7 @@ jobs:
   basic-tests:
     name: "Basic tests"
     needs: [build-info]
-    uses: ./.github/workflows/basic-tests.yml
+    uses: $/.github/workflows/basic-tests.yml
     with:
       runners: ${{ needs.build-info.outputs.runner-type }}
       run-ui-tests: ${{needs.build-info.outputs.run-ui-tests}}
@@ -255,7 +255,7 @@ jobs:
   build-ci-images:
     name: Build CI images
     needs: [build-info]
-    uses: ./.github/workflows/ci-image-build.yml
+    uses: $/.github/workflows/ci-image-build.yml
     permissions:
       contents: read
       # This write is only given here for `push` events from "apache/airflow" repo. It is not given for PRs
@@ -279,7 +279,7 @@ jobs:
   additional-ci-image-checks:
     name: "Additional CI image checks"
     needs: [build-info, build-ci-images]
-    uses: ./.github/workflows/additional-ci-image-checks.yml
+    uses: $/.github/workflows/additional-ci-image-checks.yml
     permissions:
       contents: read
       packages: write
@@ -297,7 +297,7 @@ jobs:
   generate-constraints:
     name: "Generate constraints"
     needs: [build-info, build-ci-images]
-    uses: ./.github/workflows/generate-constraints.yml
+    uses: $/.github/workflows/generate-constraints.yml
     if: needs.build-info.outputs.ci-image-build == 'true'
     with:
       runners: ${{ needs.build-info.outputs.runner-type }}
@@ -316,7 +316,7 @@ jobs:
   ci-image-checks:
     name: "CI image checks"
     needs: [build-info, build-ci-images]
-    uses: ./.github/workflows/ci-image-checks.yml
+    uses: $/.github/workflows/ci-image-checks.yml
     permissions:
       id-token: write
       contents: read
@@ -365,7 +365,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ needs.build-info.outputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ needs.build-info.outputs.platform }}
           python: "${{ needs.build-info.outputs.default-python-version }}"
@@ -373,7 +373,7 @@ jobs:
           make-mnt-writeable-and-cleanup: true
         id: breeze
       - name: "Install prek"
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: ${{ needs.build-info.outputs.platform }}
@@ -406,7 +406,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ needs.build-info.outputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ needs.build-info.outputs.platform }}
           python: "${{ needs.build-info.outputs.default-python-version }}"
@@ -414,7 +414,7 @@ jobs:
           make-mnt-writeable-and-cleanup: true
         id: breeze
       - name: "Install prek"
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: ${{ needs.build-info.outputs.platform }}
@@ -429,7 +429,7 @@ jobs:
 
   providers:
     name: "Provider distributions tests"
-    uses: ./.github/workflows/test-providers.yml
+    uses: $/.github/workflows/test-providers.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -456,7 +456,7 @@ jobs:
 
   tests-helm:
     name: "Helm tests"
-    uses: ./.github/workflows/helm-tests.yml
+    uses: $/.github/workflows/helm-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -475,7 +475,7 @@ jobs:
 
   tests-kustomize-overlays:
     name: "Kustomize overlays smoke tests"
-    uses: ./.github/workflows/kustomize-overlays-tests.yml
+    uses: $/.github/workflows/kustomize-overlays-tests.yml
     needs: [build-info, build-prod-images]
     permissions:
       contents: read
@@ -508,7 +508,7 @@ jobs:
 
   tests-postgres-core:
     name: "Postgres tests: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -537,7 +537,7 @@ jobs:
 
   tests-postgres-providers:
     name: "Postgres tests: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -566,7 +566,7 @@ jobs:
 
   tests-mysql-core:
     name: "MySQL tests: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -595,7 +595,7 @@ jobs:
 
   tests-mysql-providers:
     name: "MySQL tests: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -624,7 +624,7 @@ jobs:
 
   tests-sqlite-core:
     name: "Sqlite tests: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -655,7 +655,7 @@ jobs:
 
   tests-sqlite-providers:
     name: "Sqlite tests: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -686,7 +686,7 @@ jobs:
 
   tests-non-db-core:
     name: "Non-DB tests: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -716,7 +716,7 @@ jobs:
 
   tests-non-db-providers:
     name: "Non-DB tests: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -746,7 +746,7 @@ jobs:
 
   tests-special:
     name: "Special tests"
-    uses: ./.github/workflows/special-tests.yml
+    uses: $/.github/workflows/special-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -779,7 +779,7 @@ jobs:
   tests-integration-system:
     name: Integration and System Tests
     needs: [build-info, build-ci-images]
-    uses: ./.github/workflows/integration-system-tests.yml
+    uses: $/.github/workflows/integration-system-tests.yml
     permissions:
       contents: read
       packages: read
@@ -801,7 +801,7 @@ jobs:
   tests-with-lowest-direct-resolution-core:
     name: "Low dep tests:core"
     needs: [build-info, build-ci-images]
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -832,7 +832,7 @@ jobs:
   tests-with-lowest-direct-resolution-providers:
     name: "Low dep tests: providers"
     needs: [build-info, build-ci-images]
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -862,7 +862,7 @@ jobs:
   build-prod-images:
     name: Build PROD images
     needs: [build-info, build-ci-images, generate-constraints]
-    uses: ./.github/workflows/prod-image-build.yml
+    uses: $/.github/workflows/prod-image-build.yml
     permissions:
       contents: read
       # This write is only given here for `push` events from "apache/airflow" repo. It is not given for PRs
@@ -888,7 +888,7 @@ jobs:
   additional-prod-image-tests:
     name: "Additional PROD image tests"
     needs: [build-info, build-prod-images, generate-constraints]
-    uses: ./.github/workflows/additional-prod-image-tests.yml
+    uses: $/.github/workflows/additional-prod-image-tests.yml
     with:
       runners: ${{ needs.build-info.outputs.runner-type }}
       platform: ${{ needs.build-info.outputs.platform }}
@@ -920,7 +920,7 @@ jobs:
 
   tests-kubernetes:
     name: "Kubernetes tests"
-    uses: ./.github/workflows/k8s-tests.yml
+    uses: $/.github/workflows/k8s-tests.yml
     needs: [build-info, build-prod-images]
     permissions:
       contents: read
@@ -943,7 +943,7 @@ jobs:
 
   tests-task-sdk:
     name: "Task SDK tests"
-    uses: ./.github/workflows/airflow-distributions-tests.yml
+    uses: $/.github/workflows/airflow-distributions-tests.yml
     needs: [build-info, build-ci-images]
     permissions:
       contents: read
@@ -1061,7 +1061,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Build Java SDK Javadoc"
         run: breeze build-docs --sdk-docs-only --sdk=java
       - name: "Upload Javadoc artifact"
@@ -1093,7 +1093,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Build TypeScript SDK API reference"
         run: breeze build-docs --sdk-docs-only --sdk=typescript
       - name: "Upload TypeScript SDK docs artifact"
@@ -1107,7 +1107,7 @@ jobs:
 
   tests-airflow-ctl:
     name: "Airflow CTL tests"
-    uses: ./.github/workflows/airflow-distributions-tests.yml
+    uses: $/.github/workflows/airflow-distributions-tests.yml
     needs: [build-info]
     permissions:
       contents: read
@@ -1163,7 +1163,7 @@ jobs:
       - build-ts-sdk-docs
       - tests-with-lowest-direct-resolution-core
       - tests-with-lowest-direct-resolution-providers
-    uses: ./.github/workflows/finalize-tests.yml
+    uses: $/.github/workflows/finalize-tests.yml
     with:
       runners: ${{ needs.build-info.outputs.runner-type }}
       platform: ${{ needs.build-info.outputs.platform }}

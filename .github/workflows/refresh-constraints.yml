@@ -61,7 +61,7 @@ concurrency:
 jobs:
   refresh-constraints:
     name: "Refresh constraints"
-    uses: ./.github/workflows/update-constraints-on-push.yml
+    uses: $/.github/workflows/update-constraints-on-push.yml
     permissions:
       contents: write
       packages: write

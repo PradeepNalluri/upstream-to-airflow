@@ -71,7 +71,7 @@ jobs:
 
   trigger-backport:
     name: "Trigger Backport"
-    uses: ./.github/workflows/backport-cli.yml
+    uses: $/.github/workflows/backport-cli.yml
     needs: get-pr-info
     if: ${{ needs.get-pr-info.outputs.branches != '[]' }}
     strategy:

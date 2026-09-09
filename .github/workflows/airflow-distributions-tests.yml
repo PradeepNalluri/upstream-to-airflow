@@ -94,7 +94,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ matrix.python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: ${{ matrix.python-version }}
@@ -102,7 +102,7 @@ jobs:
           make-mnt-writeable-and-cleanup: true
         if: ${{ inputs.use-local-venv != 'true' }}
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         if: ${{ inputs.use-local-venv == 'true' }}
       - name: "Cleanup dist files"
         run: rm -fv ./dist/*

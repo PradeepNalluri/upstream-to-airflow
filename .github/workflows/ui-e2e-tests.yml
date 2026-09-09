@@ -108,7 +108,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - name: "Prepare breeze & PROD image: ${{ env.PYTHON_MAJOR_MINOR_VERSION }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           image-type: "prod"
@@ -118,7 +118,7 @@ jobs:
         id: breeze
         if: github.event_name != 'workflow_dispatch'
       - name: "Install Breeze (manual trigger)"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         if: github.event_name == 'workflow_dispatch'
       - name: "Setup pnpm"
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86  # v6.0.10

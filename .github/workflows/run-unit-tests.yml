@@ -200,7 +200,7 @@ jobs:
       - name: "Move docker to /mnt"
         run: ./scripts/ci/move_docker_to_mnt.sh
       - name: "Prepare breeze & CI image: ${{ matrix.python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: ${{ matrix.python-version }}
@@ -209,7 +209,7 @@ jobs:
           make-mnt-writeable-and-cleanup: false
       - name: >
           Migration Tests: ${{ matrix.python-version }}:${{ env.PARALLEL_TEST_TYPES }}
-        uses: ./.github/actions/migration_tests
+        uses: $/.github/actions/migration_tests
         with:
           python-version: ${{ matrix.python-version }}
         # Any new python version should be disabled below via `&& matrix.python-version != '3.xx'` until the first
@@ -223,11 +223,11 @@ jobs:
           TEST_SCOPE: "${{ inputs.test-scope }}"
         run: ./scripts/ci/testing/run_unit_tests.sh "${TEST_GROUP}" "${TEST_SCOPE}"
       - name: "Post Tests success"
-        uses: ./.github/actions/post_tests_success
+        uses: $/.github/actions/post_tests_success
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           python-version: ${{ matrix.python-version }}
         if: success()
       - name: "Post Tests failure"
-        uses: ./.github/actions/post_tests_failure
+        uses: $/.github/actions/post_tests_failure
         if: failure() || cancelled()

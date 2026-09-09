@@ -80,7 +80,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Check that image builds quickly"
         # Synchronize to be a little bit shorter than above timeout-minutes to make sure that
         # if the build takes too long the job will fail with logs. 22 minutes * 60 s = 1320 seconds

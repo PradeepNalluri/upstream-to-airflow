@@ -44,7 +44,7 @@ permissions:
 jobs:
   build-ci-image:
     name: "Build CI image"
-    uses: ./.github/workflows/ci-image-build.yml
+    uses: $/.github/workflows/ci-image-build.yml
     permissions:
       contents: read
       packages: write
@@ -145,7 +145,7 @@ jobs:
           done
 
       - name: "Prepare breeze & CI image"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           python: "3.12"
           platform: "linux/amd64"
@@ -290,7 +290,7 @@ jobs:
           persist-credentials: false
 
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         with:
           python-version: "3.12"
 

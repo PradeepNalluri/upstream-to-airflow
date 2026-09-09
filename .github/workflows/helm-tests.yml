@@ -80,7 +80,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -111,7 +111,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: Setup git for tagging
         run: |
           git config --global user.email "bot@airflow.apache.org"

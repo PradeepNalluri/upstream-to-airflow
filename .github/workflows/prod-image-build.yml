@@ -139,10 +139,10 @@ jobs:
         run: rm -fv ./dist/* ./docker-context-files/*
         if: inputs.upload-package-artifact == 'true'
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         if: inputs.upload-package-artifact == 'true'
       - name: "Install prek"
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: ${{ inputs.platform }}
@@ -226,7 +226,7 @@ jobs:
       - name: "Make /mnt writeable"
         run: ./scripts/ci/make_mnt_writeable.sh
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Cleanup dist and context file"
         shell: bash
         run: rm -fv ./dist/* ./docker-context-files/*

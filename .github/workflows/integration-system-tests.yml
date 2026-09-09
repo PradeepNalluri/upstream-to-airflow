@@ -102,7 +102,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -114,12 +114,12 @@ jobs:
         # yamllint disable rule:line-length
         run: ./scripts/ci/testing/run_integration_tests_with_retry.sh core "${INTEGRATION}"
       - name: "Post Tests success"
-        uses: ./.github/actions/post_tests_success
+        uses: $/.github/actions/post_tests_success
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           python-version: "${{ inputs.default-python-version }}"
       - name: "Post Tests failure"
-        uses: ./.github/actions/post_tests_failure
+        uses: $/.github/actions/post_tests_failure
         if: failure()
 
   tests-providers-integration:
@@ -153,7 +153,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -164,12 +164,12 @@ jobs:
           INTEGRATION: "${{ matrix.integration }}"
         run: ./scripts/ci/testing/run_integration_tests_with_retry.sh providers "${INTEGRATION}"
       - name: "Post Tests success"
-        uses: ./.github/actions/post_tests_success
+        uses: $/.github/actions/post_tests_success
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           python-version: "${{ inputs.default-python-version }}"
       - name: "Post Tests failure"
-        uses: ./.github/actions/post_tests_failure
+        uses: $/.github/actions/post_tests_failure
         if: failure()
 
   tests-system:
@@ -198,7 +198,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -208,10 +208,10 @@ jobs:
         run: >
           ./scripts/ci/testing/run_system_tests.sh airflow-core/tests/system/example_empty.py
       - name: "Post Tests success"
-        uses: ./.github/actions/post_tests_success
+        uses: $/.github/actions/post_tests_success
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           python-version: "${{ inputs.default-python-version }}"
       - name: "Post Tests failure"
-        uses: ./.github/actions/post_tests_failure
+        uses: $/.github/actions/post_tests_failure
         if: failure()

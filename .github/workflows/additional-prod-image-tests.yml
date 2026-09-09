@@ -121,7 +121,7 @@ permissions:
 jobs:
   prod-image-extra-checks-main:
     name: PROD image extra checks (main)
-    uses: ./.github/workflows/prod-image-extra-checks.yml
+    uses: $/.github/workflows/prod-image-extra-checks.yml
     with:
       runners: ${{ inputs.runners }}
       platform: ${{ inputs.platform }}
@@ -136,7 +136,7 @@ jobs:
 
   prod-image-extra-checks-release-branch:
     name: PROD image extra checks (release)
-    uses: ./.github/workflows/prod-image-extra-checks.yml
+    uses: $/.github/workflows/prod-image-extra-checks.yml
     with:
       runners: ${{ inputs.runners }}
       platform: ${{ inputs.platform }}
@@ -168,7 +168,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - name: "Prepare breeze & PROD image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           image-type: "prod"
@@ -206,7 +206,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - name: "Prepare breeze & PROD image: ${{ env.PYTHON_MAJOR_MINOR_VERSION }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           image-type: "prod"
@@ -237,7 +237,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - name: "Prepare breeze & PROD image: ${{ env.PYTHON_MAJOR_MINOR_VERSION }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           image-type: "prod"
@@ -251,7 +251,7 @@ jobs:
 
   test-e2e-integration-tests-basic:
     name: "Test e2e integration tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "Regular e2e test"
       runners: ${{ inputs.runners }}
@@ -261,7 +261,7 @@ jobs:
 
   test-e2e-integration-tests-remote-log:
     name: "Remote logging tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "Remote logging e2e test"
       runners: ${{ inputs.runners }}
@@ -273,7 +273,7 @@ jobs:
 
   test-e2e-integration-tests-remote-log-elasticsearch:
     name: "Elasticsearch remote logging tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "Elasticsearch remote logging e2e test"
       runners: ${{ inputs.runners }}
@@ -285,7 +285,7 @@ jobs:
 
   test-e2e-integration-tests-remote-log-opensearch:
     name: "OpenSearch remote logging tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "OpenSearch remote logging e2e test"
       runners: ${{ inputs.runners }}
@@ -297,7 +297,7 @@ jobs:
 
   test-e2e-integration-tests-xcom-object-storage:
     name: "XCom object storage backend tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "XCom object storage backend e2e test"
       runners: ${{ inputs.runners }}
@@ -308,7 +308,7 @@ jobs:
 
   test-e2e-integration-tests-event-driven:
     name: "Event driven tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "Event driven e2e test"
       runners: ${{ inputs.runners }}
@@ -320,7 +320,7 @@ jobs:
 
   test-e2e-integration-tests-java-sdk:
     name: "Java SDK e2e tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "Java SDK e2e test"
       runners: ${{ inputs.runners }}
@@ -332,7 +332,7 @@ jobs:
     if: inputs.canary-run == 'true' || inputs.run-java-sdk-e2e-tests == 'true'
   test-e2e-integration-tests-go-sdk:
     name: "Go SDK e2e tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "Go SDK e2e test"
       runners: ${{ inputs.runners }}
@@ -344,7 +344,7 @@ jobs:
 
   test-e2e-integration-tests-ts-sdk:
     name: "TypeScript SDK e2e tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "TypeScript SDK e2e test"
       runners: ${{ inputs.runners }}
@@ -356,7 +356,7 @@ jobs:
 
   test-e2e-integration-tests-openlineage:
     name: "OpenLineage e2e tests with PROD image"
-    uses: ./.github/workflows/airflow-e2e-tests.yml
+    uses: $/.github/workflows/airflow-e2e-tests.yml
     with:
       workflow-name: "OpenLineage e2e test"
       runners: ${{ inputs.runners }}
@@ -375,7 +375,7 @@ jobs:
       fail-fast: false
       matrix:
         compat: ${{ fromJSON(inputs.providers-compatibility-tests-matrix) }}
-    uses: ./.github/workflows/openlineage-e2e-compat-tests.yml
+    uses: $/.github/workflows/openlineage-e2e-compat-tests.yml
     with:
       runners: ${{ inputs.runners }}
       platform: ${{ inputs.platform }}
@@ -386,7 +386,7 @@ jobs:
 
   test-ui-e2e-chromium:
     name: "Chromium UI e2e tests with PROD image"
-    uses: ./.github/workflows/ui-e2e-tests.yml
+    uses: $/.github/workflows/ui-e2e-tests.yml
     with:
       workflow-name: "Chromium UI e2e tests"
       runners: ${{ inputs.runners }}
@@ -398,7 +398,7 @@ jobs:
 
   test-ui-e2e-firefox:
     name: "Firefox UI e2e tests with PROD image"
-    uses: ./.github/workflows/ui-e2e-tests.yml
+    uses: $/.github/workflows/ui-e2e-tests.yml
     with:
       workflow-name: "Firefox UI e2e tests"
       runners: ${{ inputs.runners }}
@@ -410,7 +410,7 @@ jobs:
 
   test-ui-e2e-webkit:
     name: "WebKit UI e2e tests with PROD image"
-    uses: ./.github/workflows/ui-e2e-tests.yml
+    uses: $/.github/workflows/ui-e2e-tests.yml
     with:
       workflow-name: "WebKit UI e2e tests"
       runners: ${{ inputs.runners }}
@@ -440,7 +440,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
       - name: "Prepare breeze & PROD image: ${{ env.PYTHON_MAJOR_MINOR_VERSION }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           image-type: "prod"

@@ -60,7 +60,7 @@ permissions:
   contents: read
 jobs:
   pip-image:
-    uses: ./.github/workflows/prod-image-build.yml
+    uses: $/.github/workflows/prod-image-build.yml
     with:
       runners: ${{ inputs.runners }}
       platform: ${{ inputs.platform }}

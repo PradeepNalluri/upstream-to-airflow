@@ -91,7 +91,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Save github context to file"
         # See ci-amd.yml for the full rationale: avoids ARG_MAX on big PRs by writing the
         # github context to a file, and the single-quoted heredoc makes the zizmor
@@ -143,7 +143,7 @@ jobs:
       fail-fast: false
       matrix:
         python: ${{ fromJSON(needs.build-info.outputs.pythonVersions) }}
-    uses: ./.github/workflows/release_single_dockerhub_image.yml
+    uses: $/.github/workflows/release_single_dockerhub_image.yml
     secrets:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

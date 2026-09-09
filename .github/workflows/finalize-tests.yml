@@ -143,7 +143,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ matrix.python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: ${{ matrix.python-version }}
@@ -163,7 +163,7 @@ jobs:
   push-buildx-cache-to-github-registry:
     name: Push Regular Image Cache ${{ inputs.platform }}
     needs: [update-constraints]
-    uses: ./.github/workflows/push-image-cache.yml
+    uses: $/.github/workflows/push-image-cache.yml
     permissions:
       contents: read
       # This write is only given here for `push` events from "apache/airflow" repo. It is not given for PRs

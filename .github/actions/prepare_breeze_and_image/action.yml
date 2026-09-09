@@ -55,7 +55,7 @@ runs:
       shell: bash
       run: ./scripts/tools/free_up_disk_space.sh
     - name: "Install Breeze"
-      uses: ./.github/actions/breeze
+      uses: $/.github/actions/breeze
       id: breeze
     - name: "Check free space"
       shell: bash

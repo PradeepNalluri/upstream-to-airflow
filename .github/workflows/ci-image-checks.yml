@@ -134,7 +134,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -142,7 +142,7 @@ jobs:
           make-mnt-writeable-and-cleanup: true
         id: breeze
       - name: "Install prek"
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: ${{ inputs.platform }}
@@ -198,7 +198,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -367,7 +367,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"
@@ -500,7 +500,7 @@ jobs:
           persist-credentials: false
           path: ./airflow-client-python
       - name: "Prepare breeze & CI image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           python: "${{ inputs.default-python-version }}"

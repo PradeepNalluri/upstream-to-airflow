@@ -66,11 +66,11 @@ jobs:
             "41898282+github-actions[bot]@users.noreply.github.com"
       - name: >-
           [${{ inputs.target-branch }}] Install Breeze
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         id: breeze
       - name: >-
           [${{ inputs.target-branch }}] Install prek
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: "linux/amd64"

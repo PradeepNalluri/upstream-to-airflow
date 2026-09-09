@@ -159,7 +159,7 @@ jobs:
       - name: "Move docker to /mnt"
         run: ./scripts/ci/move_docker_to_mnt.sh
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       # A ref is not a commit: a branch documented twice moves between the two publishes, and
       # an image built before it moved is a cache, not an answer. The commit each stashed image
       # is saved with tells the two apart, and it is stashed separately so that deciding costs

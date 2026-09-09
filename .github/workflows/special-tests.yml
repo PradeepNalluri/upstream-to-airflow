@@ -89,7 +89,7 @@ permissions:
 jobs:
   tests-min-sqlalchemy:
     name: "Min SQLAlchemy test: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -114,7 +114,7 @@ jobs:
 
   tests-min-sqlalchemy-providers:
     name: "Min SQLAlchemy test: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -139,7 +139,7 @@ jobs:
 
   tests-latest-sqlalchemy:
     name: "Latest SQLAlchemy test: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -164,7 +164,7 @@ jobs:
 
   tests-latest-sqlalchemy-providers:
     name: "Latest SQLAlchemy test: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -189,7 +189,7 @@ jobs:
 
   tests-boto-core:
     name: "Latest Boto test: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -215,7 +215,7 @@ jobs:
 
   tests-boto-providers:
     name: "Latest Boto test: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -241,7 +241,7 @@ jobs:
 
   tests-pendulum-2-core:
     name: "Pendulum2 test: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -267,7 +267,7 @@ jobs:
 
   tests-pendulum-2-providers:
     name: "Pendulum2 test: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -293,7 +293,7 @@ jobs:
 
   tests-quarantined-core:
     name: "Quarantined test: core"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -318,7 +318,7 @@ jobs:
 
   tests-quarantined-providers:
     name: "Quarantined test: providers"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read
@@ -343,7 +343,7 @@ jobs:
 
   tests-system-core:
     name: "System test: ${{ matrix.test-group }}"
-    uses: ./.github/workflows/run-unit-tests.yml
+    uses: $/.github/workflows/run-unit-tests.yml
     permissions:
       contents: read
       packages: read

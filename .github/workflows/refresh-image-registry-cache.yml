@@ -82,7 +82,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: Selective checks
         id: selective-checks
         env:
@@ -98,7 +98,7 @@ jobs:
   refresh-ci-cache-amd:
     name: "Refresh cache linux/amd64"
     needs: [build-info]
-    uses: ./.github/workflows/push-image-cache.yml
+    uses: $/.github/workflows/push-image-cache.yml
     permissions:
       contents: read
       # Only granted for `push` / `workflow_dispatch` on apache/airflow itself, never for forks.
@@ -125,7 +125,7 @@ jobs:
   refresh-ci-cache-arm:
     name: "Refresh cache linux/arm64"
     needs: [build-info]
-    uses: ./.github/workflows/push-image-cache.yml
+    uses: $/.github/workflows/push-image-cache.yml
     permissions:
       contents: read
       packages: write

@@ -93,7 +93,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Run unit tests"
         run: uv tool run --from apache-airflow-breeze pytest -n auto --color=yes
         working-directory: ./dev/breeze/
@@ -111,7 +111,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Install SVN"
         run: sudo apt-get update && sudo apt-get install -y subversion
       - name: "Install Java (for Apache RAT)"
@@ -256,7 +256,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Check translation completeness"
         run: breeze ui check-translation-completeness || true
 
@@ -277,10 +277,10 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
         id: breeze
       - name: "Install prek"
-        uses: ./.github/actions/install-prek
+        uses: $/.github/actions/install-prek
         id: prek
         with:
           platform: ${{ inputs.platform }}
@@ -332,7 +332,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Install Breeze"
-        uses: ./.github/actions/breeze
+        uses: $/.github/actions/breeze
       - name: "Cleanup dist files"
         run: rm -fv ./dist/*
       - name: Setup git for tagging

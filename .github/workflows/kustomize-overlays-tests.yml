@@ -74,7 +74,7 @@ jobs:
         with:
           persist-credentials: false
       - name: "Prepare breeze & PROD image: ${{ inputs.default-python-version }}"
-        uses: ./.github/actions/prepare_breeze_and_image
+        uses: $/.github/actions/prepare_breeze_and_image
         with:
           platform: ${{ inputs.platform }}
           image-type: "prod"
